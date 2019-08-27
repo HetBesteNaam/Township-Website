@@ -9,6 +9,31 @@
   color: lightgray
 }
 
+.socialmedia{
+    list-style: none;
+    color: white;
+}
+
+.insta:hover{
+  color: #FC0BCC;
+}
+
+.link:hover{
+  color: #005A97;
+}
+
+.twitter:hover{
+  color: #00BCFF;
+}
+
+.yt:hover{
+  color: red;
+}
+
+.footer{
+  color: white;
+}
+
 /* Bootstrap */
 
 :root {
