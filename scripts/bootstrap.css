@@ -2,6 +2,7 @@
 
 .footersign{
   color: white;
+  margin-bottom: 10px;
 }
 
 .footersign:hover{
@@ -9,25 +10,57 @@
   color: lightgray
 }
 
+.algemeen{
+  margin-bottom: 4px;
+}
+
+.algemeen:hover{
+  text-decoration: none;
+  color: lightgray;
+  margin-bottom: 4px;
+}
+
+.persoon:hover{
+  text-decoration: none;
+  color: lightgray;
+}
+
+.cookieverklaring:hover{
+  text-decoration: none;
+  color: lightgray;
+}
+
+.privacy:hover{
+  text-decoration: none;
+  color: lightgray;
+}
+
 .socialmedia{
     list-style: none;
-    color: white;
 }
 
-.insta:hover{
-  color: #FC0BCC;
+.socialmedia > *{
+  padding: 7px;
+  font-size: 20px;
 }
 
-.link:hover{
-  color: #005A97;
+.footerinfo > *{
+  padding: 5px;
+  font-size: 12px;
 }
 
-.twitter:hover{
-  color: #00BCFF;
+.footerinfo{
+  margin-bottom: 10px;
 }
 
-.yt:hover{
-  color: red;
+.footermark{
+  margin-bottom: 10px;
+}
+
+.footerinfo{
+  list-style: none;
+  font-size: 10px;
+  color: white;
 }
 
 .footer{
