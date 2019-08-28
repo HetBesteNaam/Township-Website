@@ -35,7 +35,7 @@
 </nav>
 
 <!-- Content -->
-<form class="text-center w-50 mx-auto mt-5">
+<form method="POST" action="SQLlogin.php" class="text-center w-50 mx-auto mt-5">
     <h1 class="text-left">Inloggen</h1>
     <hr>
     <div class="text-left">
@@ -44,12 +44,12 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="basic-addon1">@</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input type="text" name="Username" class="form-control">
                       </div>   
                     </div>
                     <div class="text-left mb-5">     
           <label for="exampleInputPassword1">Wachtwoord</label>
-          <input type="password" class="form-control w-xl-75" id="exampleInputPassword1">
+          <input type="password" name="Password" class="form-control w-xl-75" id="exampleInputPassword1">
         </div>
         <button type="submit" class="btn btn-primary mb-5">Inloggen</button>
       </form>
