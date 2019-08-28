@@ -3,7 +3,7 @@ include 'scripts/connectsql.php';
 //wanneer de form voor het toevoegen van een profiel verstuurd word, word er ingevoerd dat de artiest met desbetreffende id toegevoegd word
 if(isset($_POST['Toevoegen'])){
   $ID = $_POST["ArtistId"];
-  $sql = "UPDATE aanmelding SET geaccepteerd = 'ja' WHERE id = $ID";
+  $sql = "UPDATE aanmelding SET geaccepteerd = 'ja' WHERE accountid = $ID";
 }
 ?>
 
@@ -62,7 +62,7 @@ if(isset($_POST['Toevoegen'])){
           <div class="ml-md-auto pr-md-5 pr-lg-4 text-center">
             <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistAdd">Artiest toevoegen</button>
             <button type="button" class="btn btn-warning mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistChange">Artiest aanpassen</button>
-            <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#Artistdelete">Artiest verwijderen</button>
+            <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistDelete">Artiest verwijderen</button>
           </div>
         </div>
       </div>
@@ -124,6 +124,16 @@ if(isset($_POST['Toevoegen'])){
             <div class="form-group">
               <label for="DeleteArtist">Artiest id</label>
               <!--start php voor artiest verwijderen-->
+                <select class="form-control" name="ArtistDelete" required>
+                  <?php
+                    #misschien dat er nog een include moet komen naar connectsql
+                    $sql = "SELECT * FROM aanmeldingen";
+                    $result = mysqli_query($con,$sql);
+                    while($row = mysqli_fetch_array($result)){
+                      echo "<option name='".$row['accountid']."' value='".$row['accountid']."'>".$row['naam']."</option>";
+                    }
+                  ?>
+                </select>
               <!--end php voor artiest verwijderen-->
             </div>
           </div>
