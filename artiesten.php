@@ -27,7 +27,7 @@
         <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tickets.html">Tickets</a>
+        <a class="nav-link" href="#">Tickets</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="artiesten.html">Artiesten</a>
@@ -63,7 +63,9 @@
 <div class="row m-0">
   <h4 class="m-auto">Wilt uw zich aanmelden als artiest? klik <a href="registratie-artiesten.html" class="link">hier</a></h4>
 </div>
-  <!--start link naar artiest aanmelden-->
+  <!--end link naar artiest aanmelden-->
+
+  <!--start artiesten cards-->
 
   <!--start modal artiest toevoegen-->
   <!--end modal artiest toevoegen-->
