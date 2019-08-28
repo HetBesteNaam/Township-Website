@@ -1,10 +1,10 @@
 <?php
 include scripts/connectsql.php;
 //wanneer de form voor het toevoegen van een profiel verstuurd word
-if(isset($_POST['Toevoegen']){
-
+if(isset($_POST['Toevoegen'])){
+  $ID = $_POST['ArtistId'];
+  $sql = "UPDATE aanmelding SET geaccepteerd = 'ja' WHERE id = $ID";
 }
-
 ?>
 
 
@@ -16,7 +16,7 @@ if(isset($_POST['Toevoegen']){
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <link rel="stylesheet" href="scripts/bootstrap.css" type="text/css">
-<link rel="icon" href="/scripts/img/logo.webp">
+<link href="scripts/img/logo.ico" rel="shortcut icon" type="image/x-icon" />
 <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
 </head>
 <body>
