@@ -1,8 +1,8 @@
 <?php
-include scripts/connectsql.php;
+include 'scripts/connectsql.php';
 //wanneer de form voor het toevoegen van een profiel verstuurd word, word er ingevoerd dat de artiest met desbetreffende id toegevoegd word
 if(isset($_POST['Toevoegen'])){
-  $ID = $_POST['ArtistId'];
+  $ID = $_POST["ArtistId"];
   $sql = "UPDATE aanmelding SET geaccepteerd = 'ja' WHERE id = $ID";
 }
 ?>
