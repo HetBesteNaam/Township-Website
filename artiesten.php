@@ -124,11 +124,7 @@ if(isset($_POST['Toevoegen'])){
                   <?php
                     #misschien dat er nog een include moet komen naar connectsql
                     $sql = "SELECT * FROM aanmeldingen";
-                    $result = mysqli_query($con,$sql);
-                    if(!$result){
-                      printf("Error: %s\n", mysqli_error($con));
-                      exit();
-                    }
+                    $result = mysqli_query($con,$sql);                    
                     while($row = mysqli_fetch_array($result)){
                       echo "<option name='".$row['accountid']."' value='".$row['accountid']."'>".$row['naam']."</option>";
                     }
