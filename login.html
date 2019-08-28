@@ -35,21 +35,27 @@
 </nav>
 
 <!-- Content -->
-<div class="formcontainer">
-<br>
-<form class="text-center">
-    <div class="display-3">Inloggen</div><br>
-    <div class="form-row">
-      <input type="username" class="gebruiker form-control w-25 mx-auto" placeholder="Gebruikersnaam">
-    </div>
-    <div class="form-row">
-      <input type="password" class="pass form-control w-25 mx-auto" id="exampleInputPassword1" placeholder="Wachtwoord">
-    </div>
-    <button type="submit" class="btn btn-primary text-center">Inloggen</button>
-  </form><br></div>
+<form class="text-center w-50 mx-auto mt-5">
+    <h1 class="text-left">Inloggen</h1>
+    <hr>
+    <div class="text-left">
+                <label for="exampleInputPassword1">Gebruikersnaam</label>
+                <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">@</span>
+                        </div>
+                        <input type="text" class="form-control">
+                      </div>   
+                    </div>
+                    <div class="text-left mb-5">     
+          <label for="exampleInputPassword1">Wachtwoord</label>
+          <input type="password" class="form-control w-xl-75" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Inloggen</button>
+      </form>
 
 <!-- Footer -->
-<footer class="bg-primary text-light">
+<footer class="bg-primary text-light fixed-bottom">
           <div class="footer">
             <br>
               <div class="footermark"><p class="text-center mb-0">&copy;<script>document.write(new Date().getFullYear());</script> - <a href="#" class="footersign" class="text-light">Township</a></p>
