@@ -3,7 +3,9 @@ include 'scripts/connectsql.php';
 //wanneer de form voor het toevoegen van een profiel verstuurd word, word er ingevoerd dat de artiest met desbetreffende id toegevoegd word
 if(isset($_POST['Toevoegen'])){
   $ID = $_POST["ArtistId"];
-  $sql = "UPDATE aanmelding SET geaccepteerd = 'JA' WHERE accountid = $ID";
+  $sql = "UPDATE aanmelding  SET geaccepteerd = 'JA' WHERE accountid = $ID";
+  mysqli_query($con, $sql);
+  
 }
 ?>
 
@@ -58,7 +60,7 @@ if(isset($_POST['Toevoegen'])){
             <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistAdd">Artiest toevoegen</button>
             <button type="button" class="btn btn-warning mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistChange">Artiest aanpassen</button>
             <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistDelete">Artiest verwijderen</button>
-            <!--<a href="tabel.php" class="btn btn-dark" target="_blank">klik hier om de aanmeldingen te zien</a>-->
+            <a href="tabel.php" class="btn btn-dark" target="_blank">klik hier om de aanmeldingen te zien</a>
           </div>
         </div>
       </div>
@@ -85,7 +87,7 @@ if(isset($_POST['Toevoegen'])){
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="post" action="ariesten.php">
+        <form method="post" action="artiesten.php">
           <div class="modal-body">
             <div class="form-group">
               <label for="ArtiestId">Artiest id</label>
@@ -115,15 +117,14 @@ if(isset($_POST['Toevoegen'])){
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="post" action="ariesten.php">
+        <form method="post" action="artiesten.php">
           <div class="modal-body">
             <div class="form-group">
-              <label for="DeleteArtist">Artiest id</label>
-              <!--start php voor artiest verwijderen-->
+              <label for="DeleteArtist">Artiest Naam</label>
+              <!--start php voor artiest verwijderen, WERKT-->
                 <select class="form-control" name="ArtistDelete" required>
                   <?php
-                    #misschien dat er nog een include moet komen naar connectsql
-                    $sql = "SELECT * FROM aanmeldingen";
+                    $sql = "SELECT * FROM aanmelding";
                     $result = mysqli_query($con,$sql);                    
                     while($row = mysqli_fetch_array($result)){
                       echo "<option name='".$row['accountid']."' value='".$row['accountid']."'>".$row['naam']."</option>";
@@ -134,18 +135,55 @@ if(isset($_POST['Toevoegen'])){
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Sluiten</button>
-            <input type="submit" class="btn btn-success" name="submit" value="Artiest toevoegen">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
+            <input type="submit" class="btn btn-danger" name="delete" value="Artiest verwijderen">
           </div>
         </form>  
       </div>
     </div>
-    </div>
+  </div>
   <!--end modal artiest verwijderen-->
+
+  <!--start code om sql rij te verwijderen--> <!--MOET NOG GETEST WORDEN-->
+    <?php
+      if(!empty($_POST['ArtistDelete'])){
+        if(isset($_POST['delete'])){
+          $sql = "DELETE FROM aanmelding WHERE accountid =".$_POST['ArtistDelete'];
+          $result = mysqli_query($con, $sql);
+        }else{
+          $_POST['delete'] == null;
+        }
+      }
+    ?>
+  <!--end code om sql rij te verwijderen-->
+
+  <!-- start standaard artiesten card, en code die de artiesten toevoegd aan de pagina--> <!--MOET NOG WAT VERANDERD WORDEN AAN BREEDTE EN HOOGT AFBEELDING, maar het werkt wel zoals bedoeld-->
+  <div class="row justify-content-center m-0">
+    <?php
+      $sql = "SELECT * FROM aanmelding WHERE geaccepteerd = 'JA'";
+      $result = mysqli_query($con, $sql);
+      while ($row = mysqli_fetch_array($result)){
+        echo "<div class='card col-12 col-md-3 my-3 mx-4 mx-md-4 mx-xl-5 rounded-0'>";
+        echo "<div class='card-body px-0 py-3'>";
+        echo "<h5 class='card-title mx-2 mx-md-0'>".$row['naam']."</h5>";
+        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 d-lg-none' alt='".$row['naam']."' height='166' width='288'>";
+        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 d-none d-lg-flex' alt='".$row['naam']."' height='253' width='443'>";
+        echo "<p class='card-text h6 font-weight-normal mx-2 mx-md-0'>".$row['beschrijving']."</p>";
+        echo "<hr class='mx-1'>";
+        echo "<p>".$row['genre']."</p>";
+        echo "<p>".$row['leeftijd']."</p>";
+        echo "<p>".$row['beschikbaar']."</p>";
+        echo "<p>".$row['accountid']."</p>";
+        echo "</div>";
+        echo "</div>";
+      }
+    ?>
+  </div>
+<!-- end standaard artiesten card, en code die de artiesten toevoegd aan de pagina-->
 
 
 <!-- Footer -->
-<footer class="bg-primary text-light fixed-bottom">
+<footer class="bg-primary text-light">
           <div class="footer">
             <br>
               <div class="footermark"><p class="text-center mb-0">&copy;<script>document.write(new Date().getFullYear());</script> - <a href="#" class="footersign" class="text-light">Township</a></p>
