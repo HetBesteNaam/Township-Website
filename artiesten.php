@@ -46,28 +46,33 @@
   <!--end aanmeldingen tabel-->
 
   <!-- start medewerker buttons-->
-  <div class="container p-0 col-12 pt-3">
-    <div id="Medewerker" class="d-none">
-      <div class="row m-0">
-        <div class="ml-md-auto pr-md-5 pr-lg-4 text-center">
-          <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistAdd">Artiest toevoegen</button>
-          <button type="button" class="btn btn-warning mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistChange">Artiest aanpassen</button>
-          <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#Artistdelete">Artiest verwijderen</button>
+    <div class="container p-0 col-12 pt-3">
+      <div id="Medewerker" class="d-none">
+        <div class="row m-0">
+          <div class="ml-md-auto pr-md-5 pr-lg-4 text-center">
+            <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistAdd">Artiest toevoegen</button>
+            <button type="button" class="btn btn-warning mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistChange">Artiest aanpassen</button>
+            <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#Artistdelete">Artiest verwijderen</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   <!--end medewerker buttons-->
 
   <!--start link naar artiest aanmelden-->
-<div class="row m-0">
-  <h4 class="m-auto">Wilt uw zich aanmelden als artiest? klik <a href="registratie-artiesten.html" class="link">hier</a></h4>
-</div>
+    <div class="row m-0">
+      <h4 class="m-auto">Wilt uw zich aanmelden als artiest? klik <a href="registratie-artiesten.html" class="link">hier</a></h4>
+    </div>
   <!--end link naar artiest aanmelden-->
 
   <!--start artiesten cards-->
 
+  <!--end artiesten cards-->
+
   <!--start modal artiest toevoegen-->
+    <div class="modal fade" id="ArtistAdd" tabindex="-1" role="dialog" aria-hidden="true">
+    
+    </div>
   <!--end modal artiest toevoegen-->
 
   <!--start modal artiest aanpassen-->
@@ -75,7 +80,7 @@
 
   <!--start modal artiest verwijderen-->
   <!--end modal artiest verwijderen-->
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 
 <!-- Footer -->
 <footer class="bg-primary text-light">
