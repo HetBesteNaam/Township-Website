@@ -3,10 +3,9 @@ include 'scripts/connectsql.php';
 //wanneer de form voor het toevoegen van een profiel verstuurd word, word er ingevoerd dat de artiest met desbetreffende id toegevoegd word
 if(isset($_POST['Toevoegen'])){
   $ID = $_POST["ArtistId"];
-  $sql = "UPDATE aanmelding SET geaccepteerd = 'ja' WHERE accountid = $ID";
+  $sql = "UPDATE aanmelding SET geaccepteerd = 'JA' WHERE accountid = $ID";
 }
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -40,7 +39,7 @@ if(isset($_POST['Toevoegen'])){
         <a class="nav-link" href="#">Tickets</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="artiesten.html">Artiesten</a>
+        <a class="nav-link" href="artiesten.php">Artiesten</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="contact.html">Contact</a>
@@ -51,18 +50,15 @@ if(isset($_POST['Toevoegen'])){
 </nav>
 
 <!-- Content -->
-  <!--start aanmeldingen tabel-->
-
-  <!--end aanmeldingen tabel-->
-
   <!-- start medewerker buttons-->
-    <div class="container p-0 col-12 pt-3">
+    <div class="container p-0 col-12 pt-3">   
       <div id="Medewerker" class="">
         <div class="row m-0">
-          <div class="ml-md-auto pr-md-5 pr-lg-4 text-center">
+          <div class="ml-md-auto pr-md-5 pr-lg-4 text-center my-3">
             <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistAdd">Artiest toevoegen</button>
             <button type="button" class="btn btn-warning mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistChange">Artiest aanpassen</button>
             <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistDelete">Artiest verwijderen</button>
+            <!--<a href="tabel.php" class="btn btn-dark" target="_blank">klik hier om de aanmeldingen te zien</a>-->
           </div>
         </div>
       </div>
@@ -70,8 +66,8 @@ if(isset($_POST['Toevoegen'])){
   <!--end medewerker buttons-->
 
   <!--start link naar artiest aanmelden-->
-    <div class="row m-0">
-      <h4 class="m-auto">Wilt uw zich aanmelden als artiest? klik <a href="registratie-artiesten.html" class="link">hier</a></h4>
+    <div class="row m-0 text-center">
+      <h4 class="mx-auto my-3">Wilt uw zich aanmelden als artiest? klik <a href="registratie-artiesten.html" class="link">hier</a></h4>
     </div>
   <!--end link naar artiest aanmelden-->
 
@@ -129,6 +125,10 @@ if(isset($_POST['Toevoegen'])){
                     #misschien dat er nog een include moet komen naar connectsql
                     $sql = "SELECT * FROM aanmeldingen";
                     $result = mysqli_query($con,$sql);
+                    if(!$result){
+                      printf("Error: %s\n", mysqli_error($con));
+                      exit();
+                    }
                     while($row = mysqli_fetch_array($result)){
                       echo "<option name='".$row['accountid']."' value='".$row['accountid']."'>".$row['naam']."</option>";
                     }
@@ -144,7 +144,7 @@ if(isset($_POST['Toevoegen'])){
         </form>  
       </div>
     </div>
-  </div>
+    </div>
   <!--end modal artiest verwijderen-->
 
 
