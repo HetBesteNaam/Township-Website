@@ -13,7 +13,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
   <a class="navbar-brand" href="home.html">
-    <img src="Scripts/img/Websites4U.webp" class="navlogo" width="50" height="50">          
+    <img src="scripts/img/logo.png" class="navlogo" width="50" height="50">          
   </a>
   <a class="navbar-brand" href="#">
     <h5 class="d-md-none">Artiesten</h5>        
