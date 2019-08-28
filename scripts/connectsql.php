@@ -1,9 +1,9 @@
 <?php
 
-    $server="sql201.epizy.com";
-    $user="epiz_24089560";
-    $wachtwoord="be1gvMh8Tda6Irm";
-    $database="epiz_24089560_township_db";
+    $server="localhost";
+    $user="root";
+    $wachtwoord="";
+    $database="township";
   
     
     //verbinding maken met mysql database service
