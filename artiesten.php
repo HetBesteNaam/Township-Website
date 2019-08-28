@@ -1,6 +1,6 @@
 <?php
 include scripts/connectsql.php;
-//wanneer de form voor het toevoegen van een profiel verstuurd word
+//wanneer de form voor het toevoegen van een profiel verstuurd word, word er ingevoerd dat de artiest met desbetreffende id toegevoegd word
 if(isset($_POST['Toevoegen'])){
   $ID = $_POST['ArtistId'];
   $sql = "UPDATE aanmelding SET geaccepteerd = 'ja' WHERE id = $ID";
@@ -123,7 +123,8 @@ if(isset($_POST['Toevoegen'])){
           <div class="modal-body">
             <div class="form-group">
               <label for="DeleteArtist">Artiest id</label>
-              <!---->
+              <!--start php voor artiest verwijderen-->
+              <!--end php voor artiest verwijderen-->
             </div>
           </div>
           <div class="modal-footer">
