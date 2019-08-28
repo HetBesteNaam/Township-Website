@@ -1,3 +1,13 @@
+<?php
+include scripts/connectsql.php;
+//wanneer de form voor het toevoegen van een profiel verstuurd word
+if(isset($_POST['Toevoegen']){
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,7 +98,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Sluiten</button>
-            <input type="submit" class="btn btn-success" name="submit" value="Artiest toevoegen">
+            <input type="submit" class="btn btn-success" name="Toevoegen" value="Artiest toevoegen">
           </div>
         </form>  
       </div>
@@ -113,7 +123,7 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="DeleteArtist">Artiest id</label>
-              
+              <!---->
             </div>
           </div>
           <div class="modal-footer">
