@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<link rel="stylesheet" href="Scripts/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="scripts/bootstrap.css" type="text/css">
 <link rel="icon" href="/scripts/img/logo.webp">
 <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
 </head>
@@ -47,7 +47,7 @@
 
   <!-- start medewerker buttons-->
     <div class="container p-0 col-12 pt-3">
-      <div id="Medewerker" class="d-none">
+      <div id="Medewerker" class="">
         <div class="row m-0">
           <div class="ml-md-auto pr-md-5 pr-lg-4 text-center">
             <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistAdd">Artiest toevoegen</button>
@@ -93,6 +93,8 @@
               </form>  
             </div>
           </div>
+    </div>
+    
   <!--end modal artiest toevoegen-->
 
   <!--start modal artiest aanpassen-->
@@ -125,8 +127,8 @@
 </footer>
 
 <!-- Javascript -->
-<script src="/scripts/jquery-3.3.1.slim.min.js"></script>
-<script src="/scripts/popper.min.js"></script>
-<script src="/scripts/bootstrap.js"></script>
+<script src="scripts/jquery-3.3.1.slim.min.js"></script>
+<script src="scripts/popper.min.js"></script>
+<script src="scripts/bootstrap.js"></script>
 </body>
 </html>
