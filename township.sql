@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 28 aug 2019 om 20:09
--- Serverversie: 10.3.15-MariaDB
--- PHP-versie: 7.3.6
+-- Gegenereerd op: 29 aug 2019 om 09:12
+-- Serverversie: 10.1.36-MariaDB
+-- PHP-versie: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,13 +34,22 @@ CREATE TABLE `aanmelding` (
   `naam` varchar(50) DEFAULT NULL,
   `genre` varchar(30) DEFAULT NULL,
   `leeftijd` int(2) DEFAULT NULL,
-  `beschrijving` varchar(500) DEFAULT NULL,
+  `beschrijving` varchar(5000) DEFAULT NULL,
   `beschikbaar` varchar(200) DEFAULT NULL,
   `image` varchar(200) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `accountid` int(3) NOT NULL,
   `geaccepteerd` varchar(20) DEFAULT 'NEE'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `aanmelding`
+--
+
+INSERT INTO `aanmelding` (`naam`, `genre`, `leeftijd`, `beschrijving`, `beschikbaar`, `image`, `email`, `accountid`, `geaccepteerd`) VALUES
+('Billy Joel', ' Rock / Soft Rock', 70, 'William Martin (Billy) Joel is een Amerikaanse pianist, singer-songwriter en componist. Vanaf 1972 produceerde hij popmuziekhits (begonnen met de single Nocturne) tot zijn afscheid in 1993. Daarna bleef hij optreden, naast het schrijven en opnemen van klassieke muziek.', 'Midweek', '266px-Billy_Joel_Shankbone_NYC_2009.jpg', 'Billyy420@yahoo.com', 5, 'NEE'),
+('Bruce Springsteen', 'Rock', 69, 'Bruce Springsteen is een Amerikaanse rockzanger, gitarist en liedjesschrijver. Zijn bijnaam luidt The Boss.\r\n\r\nSpringsteen brak door met zijn derde album: Born to run (augustus 1975).', 'Donderdagen', 'Bruce_Springsteen.jpg', 'b.springstreen@rock.com', 4, 'NEE'),
+('Eric Clapton', 'blues-, rock- en popmuziek.', 74, 'Eric Patrick Clapton is een Britse gitarist, componist en zanger van blues-, rock- en popmuziek.\r\n\r\nVlak na het uitbrengen van I Still Do maakt Clapton bekend aan een afwijking in het zenuwstelsel te lijden. Hierdoor wordt gitaar spelen lastiger en soms pijnlijk voor de gitarist. Clapton geeft aan te lijden aan schokjes van het bovenbeen naar de voeten.', 'Maandag', '640px-Eric_Clapton_live_on_acoustic_guitar.jpg', 'Clapton_official@gmail.com', 6, 'NEE');
 
 -- --------------------------------------------------------
 
@@ -106,7 +115,7 @@ ALTER TABLE `aanmelding`
 -- AUTO_INCREMENT voor een tabel `aanmelding`
 --
 ALTER TABLE `aanmelding`
-  MODIFY `accountid` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `accountid` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
