@@ -1,27 +1,28 @@
 <?php
 $session;
-$Gebruikersnaam = $_POST['Username'];
-$Wachtwoord = $_POST['Password'];
+$Gebruikersnaam = $_POST['gebruikersnaam'];
+$Wachtwoord = $_POST['wachtwoord'];
 
-if (empty($Gebruikersnaam && $Wachtwoord))
+if (empty($Gebruikersnaam || $Wachtwoord))
 {
-	echo "<h2 align='center'>Nothing was entered in one or both fields</h2>";
+	echo "<h3 align='center'>Niet alles in ingevuld.<br>
+	<a href='login.html'>Terug</a></h3>";
 }
 else
 {
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "accounts";
+	$servername="localhost";
+    $username="root";
+    $password="";
+    $dbname="township";
 
 	$conn = new mysqli($servername, $username, $password, $dbname);
-	$Server_Gebruikersnaam = mysqli_query($conn, "SELECT `Gebruikersnaam`,`Wachtwoord` FROM `gebruikersgegevens` WHERE `Gebruikersnaam`='$Gebruikersnaam'");
-	$Server_Wachtwoord = mysqli_query($conn, "SELECT `Wachtwoord` FROM `gebruikersgegevens` WHERE Wachtwoord='$Wachtwoord'");
-	$Server_Admin = mysqli_query($conn, "SELECT `Admin` FROM `gebruikersgegevens` WHERE `Gebruikersnaam`='$Gebruikersnaam'");
+	$Server_Gebruikersnaam = mysqli_query($conn, "SELECT `naam`,`wachtwoord` FROM `accounts` WHERE `naam`='$Gebruikersnaam'");
+	$Server_Wachtwoord = mysqli_query($conn, "SELECT `wachtwoord` FROM `accounts` WHERE wachtwoord='$Wachtwoord'");
+	$Server_Admin = mysqli_query($conn, "SELECT `admin` FROM `gebruikersgegevens` WHERE `naam`='$Gebruikersnaam'");
 
-	$Server_Gebruikersnaam_result = mysqli_fetch_assoc ($Server_Gebruikersnaam)["Gebruikersnaam"];
-	$Server_Wachtwoord_result = mysqli_fetch_assoc ($Server_Wachtwoord)["Wachtwoord"];
-	$Server_Admin_result = mysqli_fetch_assoc ($Server_Admin)["Admin"];
+	$Server_Gebruikersnaam_result = mysqli_fetch_assoc ($Server_Gebruikersnaam)["naam"];
+	$Server_Wachtwoord_result = mysqli_fetch_assoc ($Server_Wachtwoord)["wachtwoord"];
+	$Server_Admin_result = mysqli_fetch_assoc ($Server_Admin)["admin"];
 
 	if ($Gebruikersnaam == $Server_Gebruikersnaam_result && $Wachtwoord == $Server_Wachtwoord_result)
 	{
@@ -42,7 +43,8 @@ else
 	}
 	else
 	{
-		echo "<div align='center'><h1>Invalid Username or Password<h1></div>";
+		echo "<h3 align='center'>Wachtwoord of gebruikersnaam verkeerd.<br>
+	<a href='login.html'>Terug</a></h3>";
 	}
 }
 ?>
