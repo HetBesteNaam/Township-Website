@@ -45,8 +45,13 @@ if(isset($_POST['Toevoegen'])){
       </li>
       <li class="nav-item">
         <a class="nav-link" href="contact.html">Contact</a>
-      </li>
+      </li>      
       <hr/>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
     </ul>
   </div>
 </nav>
@@ -54,7 +59,7 @@ if(isset($_POST['Toevoegen'])){
 <!-- Content -->
   <!-- start medewerker buttons-->
     <div class="container p-0 col-12 pt-3">   
-      <div id="Medewerker" class="">
+      <div class="d-none" id="Medewerker" >
         <div class="row m-0">
           <div class="ml-md-auto pr-md-5 pr-lg-4 text-center my-3">
             <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistAdd">Artiest toevoegen</button>
@@ -207,7 +212,7 @@ if(isset($_POST['Toevoegen'])){
   var Admin = sessionStorage.getItem("Admin");
   if (Admin == "YES")
   {
-    document.getElementById("Medewerker").style.display = "none";
+    document.getElementById("Medewerker").className = "d-block";
   }
 </script>
 <script src="scripts/jquery-3.3.1.slim.min.js"></script>
