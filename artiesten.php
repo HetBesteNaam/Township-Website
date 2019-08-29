@@ -63,7 +63,7 @@ if(isset($_POST['Toevoegen'])){
         <div class="row m-0">
           <div class="ml-md-auto pr-md-5 pr-lg-4 text-center my-3">
             <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistAdd">Artiest toevoegen</button>
-            <button type="button" class="btn btn-warning mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistChange">Artiest aanpassen</button>
+            <!--<button type="button" class="btn btn-warning mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistChange">Artiest aanpassen</button>-->
             <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistDelete">Artiest verwijderen</button>
             <a href="tabel.php" class="btn btn-dark" target="_blank">klik hier om de aanmeldingen te zien</a>
           </div>
@@ -162,7 +162,7 @@ if(isset($_POST['Toevoegen'])){
     ?>
   <!--end code om sql rij te verwijderen-->
 
-  <!-- start standaard artiesten card, en code die de artiesten toevoegd aan de pagina--> <!--MOET NOG WAT VERANDERD WORDEN AAN BREEDTE EN HOOGT AFBEELDING, maar het werkt wel zoals bedoeld-->
+  <!-- start standaard artiesten card, en code die de artiesten toevoegd aan de pagina-->
   <div class="row justify-content-center m-0">
     <?php
       $sql = "SELECT * FROM aanmelding WHERE geaccepteerd = 'JA'";
@@ -171,8 +171,8 @@ if(isset($_POST['Toevoegen'])){
         echo "<div class='card col-12 col-md-3 my-3 mx-4 mx-md-4 mx-xl-5 rounded-1 px-0'>";
         echo "<div class='card-body px-0 py-2'>";
         echo "<h5 class='card-title mx-2'>".$row['naam']."</h5>";
-        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-lg-none' alt='".$row['naam']."' height='166' width='288' style='object-fit: cover;'>";
-        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-none d-lg-flex' alt='".$row['naam']."' height='253' width='443' style='object-fit: cover;'>";
+        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-lg-none' alt='".$row['naam']."' height='166' width='288' style='object-fit: scale-down;'>";
+        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-none d-lg-flex' alt='".$row['naam']."' height='253' width='443' style='object-fit: scale-down;'>";
         echo "<p class='mx-2'><b>Genre: </b>".$row['genre']."<br/><b>Leeftijd: </b>".$row['leeftijd']."<br/><b>Dagen Beschikbaar: </b>".$row['beschikbaar']."</p>"; 
         echo "<hr class='mx-1'>";
         echo "<h5 class='mx-2'><b>Over deze artiest</b></h5>";
