@@ -16,9 +16,11 @@ else
     $dbname="township";
 
 	$conn = new mysqli($servername, $username, $password, $dbname);
+	
 	$Server_Gebruikersnaam = mysqli_query($conn, "SELECT `naam`,`wachtwoord` FROM `accounts` WHERE `naam`='$Gebruikersnaam'");
 	$Server_Wachtwoord = mysqli_query($conn, "SELECT `wachtwoord` FROM `accounts` WHERE wachtwoord='$Wachtwoord'");
 	$Server_Admin = mysqli_query($conn, "SELECT `admin` FROM `accounts` WHERE `naam`='$Gebruikersnaam'");
+
 	$Server_Gebruikersnaam_result = mysqli_fetch_assoc ($Server_Gebruikersnaam)["naam"];
 	$Server_Wachtwoord_result = mysqli_fetch_assoc ($Server_Wachtwoord)["wachtwoord"];
 	$Server_Admin_result = mysqli_fetch_assoc ($Server_Admin)["admin"];
