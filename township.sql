@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
@@ -71,7 +71,7 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`accountid`, `naam`, `wachtwoord`, `admin`) VALUES
 (1, 'Rick', 'wachtwoord', 'YES'),
 (2, 'Jason', 'wachtwoord', 'YES'),
-(3, 'Ruben', 'wachtwoord', 'YES');
+(3, 'Ruben', 'wachtwoord', 'YES'),
 (4, 'test', 'test', 'NO');
 
 -- --------------------------------------------------------
