@@ -141,12 +141,7 @@ if(isset($_POST['Toevoegen'])){
         </form>  
       </div>
     </div>
-<<<<<<< HEAD
-    </div>
-    
-=======
   </div>
->>>>>>> 89e91e8cb98e5d45549426b6c27f693dda323d07
   <!--end modal artiest verwijderen-->
 
   <!--start code om sql rij te verwijderen--> <!--MOET NOG GETEST WORDEN-->
@@ -168,17 +163,15 @@ if(isset($_POST['Toevoegen'])){
       $sql = "SELECT * FROM aanmelding WHERE geaccepteerd = 'JA'";
       $result = mysqli_query($con, $sql);
       while ($row = mysqli_fetch_array($result)){
-        echo "<div class='card col-12 col-md-3 my-3 mx-4 mx-md-4 mx-xl-5 rounded-0'>";
-        echo "<div class='card-body px-0 py-3'>";
-        echo "<h5 class='card-title mx-2 mx-md-0'>".$row['naam']."</h5>";
-        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 d-lg-none' alt='".$row['naam']."' height='166' width='288'>";
-        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 d-none d-lg-flex' alt='".$row['naam']."' height='253' width='443'>";
-        echo "<p class='card-text h6 font-weight-normal mx-2 mx-md-0'>".$row['beschrijving']."</p>";
+        echo "<div class='card col-12 col-md-3 my-3 mx-4 mx-md-4 mx-xl-5 rounded-1 px-0'>";
+        echo "<div class='card-body px-0 py-2'>";
+        echo "<h5 class='card-title mx-2'>".$row['naam']."</h5>";
+        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-lg-none' alt='".$row['naam']."' height='166' width='288' style='object-fit: cover;'>";
+        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-none d-lg-flex' alt='".$row['naam']."' height='253' width='443' style='object-fit: cover;'>";
+        echo "<p class='mx-2'><b>Genre: </b>".$row['genre']."<br/><b>Leeftijd: </b>".$row['leeftijd']."<br/><b>Dagen Beschikbaar: </b>".$row['beschikbaar']."</p>"; 
         echo "<hr class='mx-1'>";
-        echo "<p>".$row['genre']."</p>";
-        echo "<p>".$row['leeftijd']."</p>";
-        echo "<p>".$row['beschikbaar']."</p>";
-        echo "<p>".$row['accountid']."</p>";
+        echo "<h5 class='mx-2'><b>Over deze artiest</b></h5>";
+        echo "<p class='card-text h6 font-weight-normal mx-4 mx-md-0 px-2'>".$row['beschrijving']."</p>";       
         echo "</div>";
         echo "</div>";
       }
