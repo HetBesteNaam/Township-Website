@@ -23,6 +23,10 @@ else
 	$Server_Gebruikersnaam_result = mysqli_fetch_assoc ($Server_Gebruikersnaam)["naam"];
 	$Server_Wachtwoord_result = mysqli_fetch_assoc ($Server_Wachtwoord)["wachtwoord"];
 	$Server_Admin_result = mysqli_fetch_assoc ($Server_Admin)["admin"];
+	if(!$Server_Admin_result){
+		printf("Error: %s\n", mysqli_error($conn));
+		exit();
+	}
 
 	if ($Gebruikersnaam == $Server_Gebruikersnaam_result && $Wachtwoord == $Server_Wachtwoord_result)
 	{
