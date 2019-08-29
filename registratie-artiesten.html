@@ -43,48 +43,40 @@
 <!-- Content -->
 
 <div align="center">
-  <form name="Login" method="POST" action="register.php" enctype="multipart/form-data">
-      <div class="form-group">
-          <input type="text" class="form-control" name="naam" aria-describedby="naam_input" placeholder="Vul uw naam in">
+  <form name="Sign_Up" method="POST" action="register.php" enctype="multipart/form-data">
+  </br>
+  <h1>Registreren</h1>
+      <div class="form-group w-25" width="50%">
+          <label for="naam">Naam</label>
+          <input type="text" width="50%" class="form-control" name="naam" id="naam" aria-describedby="naam_input" placeholder="Vul uw naam in">
       </div>
-      <br />
-      <div class="form-group">
+      <div class="form-group w-25">
+          <label for="genre">Genre</label>          
           <input type="text" class="form-control" name="genre" placeholder="Welk genre speelt u?">
       </div>
-      <br />
-      <div class="form-group">
+      <div class="form-group w-25">
+          <label for="leeftijd">Leeftijd</label>
           <input type="text" class="form-control" name="leeftijd" placeholder="Vul uw leeftijd in">
       </div>
-       <div class="form-group">
-          <input type="text" class="form-control" name="beschrijving" placeholder="Vul een beschrijving over uzelf in.">
+       <div class="form-group w-25">
+           <label for="beschrijving">Beschrijving</label>
+           <textarea class="form-control" rows="8" name="beschrijving" id="beschrijving" placeholder="Vul een beschrijving over uzelf in".></textarea>
       </div>
-      <br />
-      <div class="form-group">
-        <input type="file" name="image">
+      <div class="form-group w-25">
+          <label for="beschikbaar">Beschikbaarheid</label>
+          <input type="text" class="form-control" name="beschikbaar" placeholder="Welke dagen / tijden bent u beschikbaar">
       </div>
-      <br />
-      <div class="form-group">
-          <input type="text" class="form-control" name="beschikbaar" placeholder="beschikbaar">
+      <div class="form-group w-25">
+          <label for="email">Email-adres</label>
+          <input type="text" class="form-control" name="email" placeholder="Vul uw email-adres in">
       </div>
-      <br />
-      <div class="form-group">
-          <input type="text" class="form-control" name="email" placeholder="email">
+        <div class="form-group w-25">
+            <lable for="image">Selecteer een Profielfoto</lable>
+        <input type="file" name="image" id="image">
       </div>
-      <br />
-      <a href=""><button type="submit" class="btn btn-primary">Login</button></a><br />
+      <a href=""><button type="submit" class="btn btn-primary">Registreren</button></a><br />
       <br />
 </div>
-
-<!--    <form method="POST" action="regester.php" enctype="multipart/form-data">
-        <input type="hidden" name="size" value="1000000000">
-        <div>
-          <input type="file" name="image">
-        </div>
-        <div>
-          <input type="submit" name="upload" value="">
-        </div>
-    </form>
--->
 
 <!-- Footer -->
 <footer class="bg-primary text-light">
