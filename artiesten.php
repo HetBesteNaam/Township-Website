@@ -203,6 +203,13 @@ if(isset($_POST['Toevoegen'])){
 </footer>
 
 <!-- Javascript -->
+<script>
+  var Admin = sessionStorage.getItem("Admin");
+  if (Admin == "YES")
+  {
+    document.getElementById("Medewerker").style.display = "none";
+  }
+</script>
 <script src="scripts/jquery-3.3.1.slim.min.js"></script>
 <script src="scripts/popper.min.js"></script>
 <script src="scripts/bootstrap.js"></script>

@@ -19,14 +19,9 @@ else
 	$Server_Gebruikersnaam = mysqli_query($conn, "SELECT `naam`,`wachtwoord` FROM `accounts` WHERE `naam`='$Gebruikersnaam'");
 	$Server_Wachtwoord = mysqli_query($conn, "SELECT `wachtwoord` FROM `accounts` WHERE wachtwoord='$Wachtwoord'");
 	$Server_Admin = mysqli_query($conn, "SELECT `admin` FROM `accounts` WHERE `naam`='$Gebruikersnaam'");
-
 	$Server_Gebruikersnaam_result = mysqli_fetch_assoc ($Server_Gebruikersnaam)["naam"];
 	$Server_Wachtwoord_result = mysqli_fetch_assoc ($Server_Wachtwoord)["wachtwoord"];
 	$Server_Admin_result = mysqli_fetch_assoc ($Server_Admin)["admin"];
-	if(!$Server_Admin_result){
-		printf("Error: %s\n", mysqli_error($conn));
-		exit();
-	}
 
 	if ($Gebruikersnaam == $Server_Gebruikersnaam_result && $Wachtwoord == $Server_Wachtwoord_result)
 	{
@@ -41,7 +36,7 @@ else
 		setTimeout(redirect, 3000);
 		function redirect()
 		{
-			window.location.href = 'Home.html';
+			window.location.href = 'artiesten.php';
 		}
 		</script>");
 	}
