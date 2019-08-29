@@ -38,7 +38,7 @@ if(isset($_POST['Toevoegen'])){
         <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tickets.php">Tickets</a>
+        <a class="nav-link" href="tickets.php">Evenementen</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="artiesten.php">Artiesten</a>
@@ -77,10 +77,6 @@ if(isset($_POST['Toevoegen'])){
       <h4 class="mx-auto my-3">Wilt uw zich aanmelden als artiest? klik <a href="registratie-artiesten.html" class="link">hier</a></h4>
     </div>
   <!--end link naar artiest aanmelden-->
-
-  <!--start artiesten cards-->
-
-  <!--end artiesten cards-->
 
   <!--start modal artiest toevoegen-->
   <div class="modal fade" id="ArtistAdd" tabindex="-1" role="dialog" aria-hidden="true">
@@ -126,7 +122,7 @@ if(isset($_POST['Toevoegen'])){
           <div class="modal-body">
             <div class="form-group">
               <label for="DeleteArtist">Artiest Naam</label>
-              <!--start php voor artiest verwijderen, WERKT-->
+              <!--start php voor artiest verwijderen-->
                 <select class="form-control" name="ArtistDelete" required>
                   <?php
                     $sql = "SELECT * FROM aanmelding";
@@ -149,7 +145,7 @@ if(isset($_POST['Toevoegen'])){
   </div>
   <!--end modal artiest verwijderen-->
 
-  <!--start code om sql rij te verwijderen--> <!--MOET NOG GETEST WORDEN-->
+  <!--start code om sql rij te verwijderen-->
     <?php
       if(!empty($_POST['ArtistDelete'])){
         if(isset($_POST['delete'])){
