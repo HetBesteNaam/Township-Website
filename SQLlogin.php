@@ -23,13 +23,12 @@ else
 	$Server_Gebruikersnaam_result = mysqli_fetch_assoc ($Server_Gebruikersnaam)["naam"];
 	$Server_Wachtwoord_result = mysqli_fetch_assoc ($Server_Wachtwoord)["wachtwoord"];
 	$Server_Admin_result = mysqli_fetch_assoc ($Server_Admin)["admin"];
-	if(!$Server_Admin_result){
-		printf("Error: %s\n", mysqli_error($conn));
-		exit();
-	}
 
 	if ($Gebruikersnaam == $Server_Gebruikersnaam_result && $Wachtwoord == $Server_Wachtwoord_result)
 	{
+		echo("<html><head><title>Redirecting...</title><link rel='stylesheet' href='scripts/bootstrap.css' type='text/css'></head><body><script src='/scripts/jquery-3.3.1.slim.min.js'></script>
+		<script src='scripts/popper.min.js'></script>
+		<script src='scripts/bootstrap.js'></script></body></html>");
 		echo "<h2 align='center'>You are now logged in, you will be redirected in a few seconds</h2>";
 		echo "<script> 
 		var Gebruikersnaam = '$Gebruikersnaam';
