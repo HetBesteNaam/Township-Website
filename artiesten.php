@@ -99,7 +99,7 @@ if(isset($_POST['Toevoegen'])){
         </form>  
       </div>
     </div>
-  </div>    
+  </div>
   <!--end modal artiest toevoegen-->
 
   <!--start modal artiest aanpassen-->
@@ -145,6 +145,7 @@ if(isset($_POST['Toevoegen'])){
       </div>
     </div>
     </div>
+    
   <!--end modal artiest verwijderen-->
 
 
