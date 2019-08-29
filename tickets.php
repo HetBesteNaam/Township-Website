@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 include 'scripts/connectsql.php';
 
@@ -18,6 +19,8 @@ if(isset($_POST['Toevoegen'])){
   }
 ?>
 
+=======
+>>>>>>> fa7afb6fc6f0d6627abf261d8e228fae90e3ede3
 <!DOCTYPE html>
 <html>
 <head>

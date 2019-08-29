@@ -30,7 +30,7 @@ else
 		echo("<html><head><title>Redirecting...</title><link rel='stylesheet' href='scripts/bootstrap.css' type='text/css'></head><body><script src='/scripts/jquery-3.3.1.slim.min.js'></script>
 		<script src='scripts/popper.min.js'></script>
 		<script src='scripts/bootstrap.js'></script></body></html>");
-		echo "<h2 align='center'>You are now logged in, you will be redirected in a few seconds</h2>";
+		echo "<h2 class='text-center my-5'><div class='spinner-border text-success mx-auto' role='status'><span class='sr-only'>Loading...</span></div>     Ingelogd. U wordt nu doorgestuurd.</h2>";
 		echo "<script> 
 		var Gebruikersnaam = '$Gebruikersnaam';
 		var Admin = '$Server_Admin_result';

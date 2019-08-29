@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Township</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<link rel="stylesheet" href="scripts/bootstrap.css" type="text/css">
-<link href="scripts/img/logo.ico" rel="shortcut icon" type="image/x-icon" />
-<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <title>Township</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="scripts/bootstrap.css" type="text/css">
+    <link href="scripts/img/logo.ico" rel="shortcut icon" type="image/x-icon" />
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+<script>
+    $("input[type='number']").inputSpinner()
+</script>
 </head>
 <body>
+    
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
     <a class="navbar-brand" href="home.html">
@@ -40,24 +44,35 @@
 </nav>
 
 <!-- Content -->
-<div class="my-5">
-<div align="center">
 
-<h1>Uw registratie was sucessvol verstuurd</h1>  
-</br>
-<h4>Ons personeel gaat uw registratie nu controleren en als deze geaccepteerd wordt komt u op onze site terecht</h4>
-<h4>u ontvangt een e-mail als u geaccepteerd bent.</h4>
-</br>
-<img class="succesimg" src="scripts/img/sucess.gif">
-</br>
-</br>
-<a href="home.html"><button type="submit" class="btn btn-primary"><h5>Terug naar Home</h5></button></a><br />
-</br>
+<div align="center">
+  <form name="betalen">
+  </br>
+  <h1>Bestel uw tickets</h1>
+        </br>
+      <div class="form-group w-25">
+          <label for="naam">Uw naam</label>
+          <input type="text" class="form-control" placeholder="Vul uw naam in">
+      </div>
+      <div class="form-group w-25">
+          <label for="genre">Uw Email-adres</label>          
+          <input type="text" class="form-control" placeholder="Vul uw email-adres in">
+      </div>
+      <label for="number">Aantal Tickets:</label></br>
+      <input type="number" id="number" value="1" min="1" max="100" step="1"/>
+      <br />
+      <br />
+      <a href="betaling.html"><button type="button" class="btn btn-primary">Verder</button></a>
+      <h6><small class="text-muted">*Wij gaan uiterst zoorgvuldig met uw gegevens om</small></h6>
+
+
+      </form>
+    </br>
 </div>
-</div>
+
 
 <!-- Footer -->
-<footer class="bg-primary text-light">
+<footer class="bg-primary text-light fixed-bottom">
           <div class="footer">
             <br>
               <div class="footermark"><p class="text-center mb-0">&copy;<script>document.write(new Date().getFullYear());</script> - <a href="#" class="footersign" class="text-light">Township</a></p>
@@ -70,7 +85,7 @@
                 </div>
               <div class="socialmedia text-center">
                   <a href="#" class="insta text-light"><i class="fab fa-instagram"></i></a>
-                  <a href="https://www.facebook.com/poppodium" Target="_blank" class="facebook text-light"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="facebook text-light"><i class="fab fa-facebook-f"></i></a>
                   <a href="#" class="twitter text-light"><i class="fab fa-twitter"></i></a>
                   <a href="#" class="yt text-light"><i class="fab fa-youtube"></i></a>
               </div>
