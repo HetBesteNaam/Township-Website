@@ -38,7 +38,7 @@ if(isset($_POST['Toevoegen'])){
         <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Tickets</a>
+        <a class="nav-link" href="tickets.php">Tickets</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="artiesten.php">Artiesten</a>
