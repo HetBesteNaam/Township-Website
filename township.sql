@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 29 aug 2019 om 13:55
+-- Gegenereerd op: 29 aug 2019 om 20:54
 -- Serverversie: 10.1.36-MariaDB
 -- PHP-versie: 7.2.11
 
@@ -47,8 +47,7 @@ CREATE TABLE `aanmelding` (
 --
 
 INSERT INTO `aanmelding` (`naam`, `genre`, `leeftijd`, `beschrijving`, `beschikbaar`, `image`, `email`, `accountid`, `geaccepteerd`) VALUES
-('Billy Joel', ' Rock / Soft Rock', 70, 'William Martin (Billy) Joel is een Amerikaanse pianist, singer-songwriter en componist. Vanaf 1972 produceerde hij popmuziekhits (begonnen met de single Nocturne) tot zijn afscheid in 1993. Daarna bleef hij optreden, naast het schrijven en opnemen van klassieke muziek.', 'Midweek', '266px-Billy_Joel_Shankbone_NYC_2009.jpg', 'Billyy420@yahoo.com', 5, 'NEE'),
-('Bruce Springsteen', 'Rock', 69, 'Bruce Springsteen is een Amerikaanse rockzanger, gitarist en liedjesschrijver. Zijn bijnaam luidt The Boss.\r\n\r\nSpringsteen brak door met zijn derde album: Born to run (augustus 1975).', 'Donderdagen', 'Bruce_Springsteen.jpg', 'b.springstreen@rock.com', 4, 'NEE'),
+('Billy Joel', ' Rock / Soft Rock', 70, 'William Martin (Billy) Joel is een Amerikaanse pianist, singer-songwriter en componist. Vanaf 1972 produceerde hij popmuziekhits (begonnen met de single Nocturne) tot zijn afscheid in 1993. Daarna bleef hij optreden, naast het schrijven en opnemen van klassieke muziek.', 'Midweek', '266px-Billy_Joel_Shankbone_NYC_2009.jpg', 'Billyy420@yahoo.com', 5, 'JA'),
 ('Eric Clapton', 'blues-, rock- en popmuziek.', 74, 'Eric Patrick Clapton is een Britse gitarist, componist en zanger van blues-, rock- en popmuziek.\r\n\r\nVlak na het uitbrengen van I Still Do maakt Clapton bekend aan een afwijking in het zenuwstelsel te lijden. Hierdoor wordt gitaar spelen lastiger en soms pijnlijk voor de gitarist. Clapton geeft aan te lijden aan schokjes van het bovenbeen naar de voeten.', 'Maandag', '640px-Eric_Clapton_live_on_acoustic_guitar.jpg', 'Clapton_official@gmail.com', 6, 'JA');
 
 -- --------------------------------------------------------
@@ -71,8 +70,7 @@ CREATE TABLE `accounts` (
 INSERT INTO `accounts` (`accountid`, `naam`, `wachtwoord`, `admin`) VALUES
 (1, 'Rick', 'wachtwoord', 'YES'),
 (2, 'Jason', 'wachtwoord', 'YES'),
-(3, 'Ruben', 'wachtwoord', 'YES'),
-(4, 'test', 'test', 'NO');
+(3, 'Ruben', 'wachtwoord', 'YES');
 
 -- --------------------------------------------------------
 
@@ -84,6 +82,7 @@ CREATE TABLE `tickets` (
   `naam` varchar(50) DEFAULT NULL,
   `plaats` varchar(150) DEFAULT NULL,
   `datum` varchar(50) DEFAULT NULL,
+  `tijd` text NOT NULL,
   `artiest` text,
   `beschrijving` text,
   `prijs` decimal(4,2) DEFAULT NULL
@@ -93,9 +92,11 @@ CREATE TABLE `tickets` (
 -- Gegevens worden geëxporteerd voor tabel `tickets`
 --
 
-INSERT INTO `tickets` (`naam`, `plaats`, `datum`, `artiest`, `beschrijving`, `prijs`) VALUES
-('jibirish naam', 'jibirishstraat 54', 'jibirish augustus', 'jibirish van der jibirish', 'beschrijving van jibirish', '99.99'),
-('jebirish naam', 'jebirishstraat 54', 'jebirish augustus', 'jebirish van der jebirish', 'beschrijving van jebirish', '99.99');
+INSERT INTO `tickets` (`naam`, `plaats`, `datum`, `tijd`, `artiest`, `beschrijving`, `prijs`) VALUES
+('jibirish naam', 'jibirishstraat 54', 'jibirish augustus', '19:30 - 22:00', 'jibirish van der jibirish', 'beschrijving van jibirish', '99.99'),
+('jebirish naam', 'jebirishstraat 54', 'jebirish augustus', '19:30 - 22:00', 'jebirish van der jebirish', 'beschrijving van jebirish', '99.99'),
+('test', 'test', '2019-08-30', '22:30 - 10:00', 'Billy Joel', 'Test', '3.99'),
+('test', 'test', '2019-08-30', '22:30 - 10:00', 'test', 'test', '3.99');
 
 --
 -- Indexen voor geëxporteerde tabellen
