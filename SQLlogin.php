@@ -41,7 +41,7 @@ else
 		setTimeout(redirect, 3000);
 		function redirect()
 		{
-			window.location.href = 'artiesten.php';
+			window.location.href = 'home.html';
 		}
 		</script>");
 	}

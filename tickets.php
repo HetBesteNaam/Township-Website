@@ -15,6 +15,7 @@ if(isset($_POST['Toevoegen'])){
     $sql = "INSERT INTO tickets (naam, plaats, datum, tijd, artiest, beschrijving, prijs) VALUES ('$naam', '$plaats', '$datum', '$tijd', '$artiest', '$beschrijving', '$prijs')";
     mysqli_query($con, $sql); //slaat de gestuurde gevens op in de 'producten' tabel in de database
     
+    header("location:tickets.php");
   }
 ?>
 
@@ -71,8 +72,8 @@ if(isset($_POST['Toevoegen'])){
       <div class="d-none" id="Medewerker" >
         <div class="row m-0">
           <div class="ml-md-auto pr-md-5 pr-lg-4 text-center my-3">
-            <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#TicketAdd">Ticket toevoegen</button>
-            <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#TicketDelete">Ticket verwijderen</button>
+            <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#TicketAdd">Evenement toevoegen</button>
+            <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#TicketDelete">Evenement verwijderen</button>
           </div>
         </div>
       </div>
@@ -156,7 +157,7 @@ if(isset($_POST['Toevoegen'])){
                     $sql = "SELECT * FROM tickets";
                     $result = mysqli_query($con,$sql);                    
                     while($row = mysqli_fetch_array($result)){
-                      echo "<option name='".$row['naam']."' value='".$row['naam']."'>".$row['naam']."</option>";
+                      echo "<option name='".$row['id']."' value='".$row['id']."'>".$row['naam']."</option>";
                     }
                   ?>
                 </select>
@@ -177,33 +178,36 @@ if(isset($_POST['Toevoegen'])){
     <?php
       if(!empty($_POST['TicketDelete'])){
         if(isset($_POST['delete'])){
-          $sql = "DELETE FROM tickets WHERE naam =".$_POST['TicketDelete'];
-          $result = mysqli_query($con, $sql);
+          $sql = "DELETE FROM tickets WHERE id =".$_POST['TicketDelete'];
+          $result = mysqli_query($con, $sql);          
         }else{
           $_POST['delete'] == null;
-        }
+        }        
       }
     ?>
   <!--end code om sql rij te verwijderen-->
 
   <!-- start standaard ticket card, en code die de tickets toevoegd aan de pagina--> 
   <div class="row justify-content-center m-0">
-    <?php/*
-      $sql = "SELECT * FROM aanmelding WHERE geaccepteerd = 'JA'";
+    <?php
+      $sql = "SELECT * FROM tickets";
       $result = mysqli_query($con, $sql);
       while ($row = mysqli_fetch_array($result)){
-        echo "<div class='card col-12 col-md-3 my-3 mx-4 mx-md-4 mx-xl-5 rounded-1 px-0'>";
+        echo "<div class='card col-12 col-md-3 col-xl-2 my-3 mx-4 mx-md-4 mx-xl-5 rounded-1 px-0 text-center'>";
         echo "<div class='card-body px-0 py-2'>";
         echo "<h5 class='card-title mx-2'>".$row['naam']."</h5>";
-        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-lg-none' alt='".$row['naam']."' height='166' width='288' style='object-fit: scale-down;'>";
-        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-none d-lg-flex' alt='".$row['naam']."' height='253' width='443' style='object-fit: scale-down;'>";
-        echo "<p class='mx-2'><b>Genre: </b>".$row['genre']."<br/><b>Leeftijd: </b>".$row['leeftijd']."<br/><b>Dagen Beschikbaar: </b>".$row['beschikbaar']."</p>"; 
         echo "<hr class='mx-1'>";
-        echo "<h5 class='mx-2'><b>Over deze artiest</b></h5>";
-        echo "<p class='card-text h6 font-weight-normal mx-4 mx-md-0 px-2'>".$row['beschrijving']."</p>";       
+        echo "<p class='mx-2'><b>Plaats: </b>".$row['plaats']."
+        <br/><b>Datum: </b>".$row['datum']."
+        <br/><b>Tijd: </b>".$row['tijd']."
+        <br/><b>Artiest(en): </b></p><pre class='mx-1'>".$row['artiest']."</pre><p class='mx-2'>
+        <b>Prijs: </b>".$row['prijs']."</p>"; 
+        echo "<h5 class='mx-2'><b>Over dit evenement</b></h5>";
+        echo "<p class='card-text h6 font-weight-normal mx-4 mx-md-0 px-2 py-1'>".$row['beschrijving']."</p>"; 
+        echo "<a href='ticket-bestelling.html' class='btn btn-success mt-1'>Ticket bestellen</a>";      
         echo "</div>";
         echo "</div>";
-      }*/
+      }
     ?>
   </div>
 <!-- end standaard ticket card, en code die de tickets toevoegd aan de pagina-->
@@ -236,7 +240,7 @@ if(isset($_POST['Toevoegen'])){
   var Admin = sessionStorage.getItem("Admin");
   if (Admin == "YES")
   {
-    document.getElementById("Medewerker").className = "d-block";
+    document.getElementById("Medewerker").className = "d-none d-lg-block";
   }
 </script>
 <script src="scripts/jquery-3.3.1.slim.min.js"></script>

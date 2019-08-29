@@ -49,8 +49,8 @@ include 'scripts/connectsql.php';
   <!-- start tabel aanmeldingen-->
     <div class="container p-0 col-12 pt-3 d-none d-md-block">
       <div class="row m-0 p-0">
-        <div class="mx-auto">
-          <table class="table">
+        <div class="mx-auto table-responsive">
+          <table class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">Id</th>
@@ -68,10 +68,6 @@ include 'scripts/connectsql.php';
                 #misschien dat er nog een include moet komen naar connectsql
                 $sql = "SELECT * FROM aanmelding";
                 $result = mysqli_query($con,$sql);
-                if(!$result){
-                  printf("Error: %s\n", mysqli_error($con));
-                  exit();
-                }
                 while($row = mysqli_fetch_array($result)){
                   echo "
                     <tr>
@@ -93,7 +89,7 @@ include 'scripts/connectsql.php';
         
   <!--end tabel met aanmeldingen-->
   <!-- Footer -->
-<footer class="bg-primary text-light fixed-bottom">
+<footer class="bg-primary text-light">
           <div class="footer">
             <br>
               <div class="footermark"><p class="text-center mb-0">&copy;<script>document.write(new Date().getFullYear());</script> - <a href="#" class="footersign" class="text-light">Township</a></p>

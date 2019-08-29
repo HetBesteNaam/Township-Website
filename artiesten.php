@@ -169,10 +169,13 @@ if(isset($_POST['Toevoegen'])){
         echo "<h5 class='card-title mx-2'>".$row['naam']."</h5>";
         echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-lg-none' alt='".$row['naam']."' height='166' width='288' style='object-fit: scale-down;'>";
         echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-none d-lg-flex' alt='".$row['naam']."' height='253' width='443' style='object-fit: scale-down;'>";
-        echo "<p class='mx-2'><b>Genre: </b>".$row['genre']."<br/><b>Leeftijd: </b>".$row['leeftijd']."<br/><b>Dagen Beschikbaar: </b>".$row['beschikbaar']."</p>"; 
+        echo "<p class='mx-2'>
+        <b>Genre: </b>".$row['genre']."<br/>
+        <b>Leeftijd: </b>".$row['leeftijd']."<br/>
+        <b>Dagen Beschikbaar: </b>".$row['beschikbaar']."</p>"; 
         echo "<hr class='mx-1'>";
-        echo "<h5 class='mx-2'><b>Over deze artiest</b></h5>";
-        echo "<p class='card-text h6 font-weight-normal mx-4 mx-md-0 px-2'>".$row['beschrijving']."</p>";       
+        echo "<h5 class='mx-3 mx-sm-2'><b>Over deze artiest</b></h5>";
+        echo "<p class='card-text h6 font-weight-normal mx-2 mx-sm-1 px-2'>".$row['beschrijving']."</p>";       
         echo "</div>";
         echo "</div>";
       }
@@ -208,7 +211,7 @@ if(isset($_POST['Toevoegen'])){
   var Admin = sessionStorage.getItem("Admin");
   if (Admin == "YES")
   {
-    document.getElementById("Medewerker").className = "d-block";
+    document.getElementById("Medewerker").className = "d-none d-lg-block";
   }
 </script>
 <script src="scripts/jquery-3.3.1.slim.min.js"></script>
