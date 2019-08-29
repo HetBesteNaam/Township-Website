@@ -5,7 +5,7 @@ if(isset($_POST['Toevoegen'])){
   $ID = $_POST["ArtistId"];
   $sql = "UPDATE aanmelding  SET geaccepteerd = 'JA' WHERE accountid = $ID";
   mysqli_query($con, $sql);
-  
+  header("location:artiesten.php");
 }
 ?>
 

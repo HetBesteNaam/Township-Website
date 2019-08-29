@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 29 aug 2019 om 20:54
--- Serverversie: 10.1.36-MariaDB
--- PHP-versie: 7.2.11
+-- Gegenereerd op: 29 aug 2019 om 23:39
+-- Serverversie: 10.3.15-MariaDB
+-- PHP-versie: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -79,12 +79,13 @@ INSERT INTO `accounts` (`accountid`, `naam`, `wachtwoord`, `admin`) VALUES
 --
 
 CREATE TABLE `tickets` (
+  `id` int(11) NOT NULL,
   `naam` varchar(50) DEFAULT NULL,
   `plaats` varchar(150) DEFAULT NULL,
   `datum` varchar(50) DEFAULT NULL,
   `tijd` text NOT NULL,
-  `artiest` text,
-  `beschrijving` text,
+  `artiest` text DEFAULT NULL,
+  `beschrijving` text DEFAULT NULL,
   `prijs` decimal(4,2) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -92,11 +93,10 @@ CREATE TABLE `tickets` (
 -- Gegevens worden geëxporteerd voor tabel `tickets`
 --
 
-INSERT INTO `tickets` (`naam`, `plaats`, `datum`, `tijd`, `artiest`, `beschrijving`, `prijs`) VALUES
-('jibirish naam', 'jibirishstraat 54', 'jibirish augustus', '19:30 - 22:00', 'jibirish van der jibirish', 'beschrijving van jibirish', '99.99'),
-('jebirish naam', 'jebirishstraat 54', 'jebirish augustus', '19:30 - 22:00', 'jebirish van der jebirish', 'beschrijving van jebirish', '99.99'),
-('test', 'test', '2019-08-30', '22:30 - 10:00', 'Billy Joel', 'Test', '3.99'),
-('test', 'test', '2019-08-30', '22:30 - 10:00', 'test', 'test', '3.99');
+INSERT INTO `tickets` (`id`, `naam`, `plaats`, `datum`, `tijd`, `artiest`, `beschrijving`, `prijs`) VALUES
+(12, 'Billy VS Eric SHOWDOWN', 'Poppodium Township', '2019-10-10', '10:00 - 22:00', 'Billy Joel\r\nEric Clapton', 'Eric slaat toe! deze show zit propvol met nieuwe liedjes van Eric Clapton en Billy Joel, en deze spannende show draait om de strijdt tussen Eric en Billy!\r\n', '70.00'),
+(11, 'Eric Clapton Tonight', 'Poppodium Township', '2019-09-01', '20:30 - 22:00', 'Eric Clapton', 'Eric Clapton Tonight zal je geheid verassen! Eric is terug na een aantal jaar stilte, dus bereidt je voor!', '60.50'),
+(10, 'Billy Joel show!', 'Poppodium Township', '2019-08-30', '22:30 - 10:00', 'Billy Joel', 'Bereid je voor op de meest spannende show van je leven! Billy Joel neemt je mee op een Once in a lifetime experience!', '40.00');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -110,6 +110,12 @@ ALTER TABLE `aanmelding`
   ADD KEY `accountid` (`accountid`);
 
 --
+-- Indexen voor tabel `tickets`
+--
+ALTER TABLE `tickets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
@@ -118,6 +124,12 @@ ALTER TABLE `aanmelding`
 --
 ALTER TABLE `aanmelding`
   MODIFY `accountid` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT voor een tabel `tickets`
+--
+ALTER TABLE `tickets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
