@@ -1,7 +1,7 @@
 <?php
 include 'scripts/connectsql.php';
 
-//wanneer de ticket form verstuurd word
+//wanneer de evenementen form verstuurd word
 if(isset($_POST['Toevoegen'])){
     //de data uit de form halen
     $naam = $_POST['TicketName'];
@@ -36,7 +36,7 @@ if(isset($_POST['Toevoegen'])){
     <img src="scripts/img/logo.png" class="navlogo" width="50" height="50">          
   </a>
   <a class="navbar-brand" href="#">
-    <h5 class="d-md-none">Tickets</h5>        
+    <h5 class="d-md-none">Evenementen</h5>        
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -90,7 +90,7 @@ if(isset($_POST['Toevoegen'])){
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Ticket toevoegen</h5>
+          <h5 class="modal-title">Evenement toevoegen</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -141,7 +141,7 @@ if(isset($_POST['Toevoegen'])){
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Ticket verwijderen</h5>
+          <h5 class="modal-title">Evenement verwijderen</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
