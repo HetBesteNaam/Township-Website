@@ -12,52 +12,49 @@
 <body>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
-  <a class="navbar-brand" href="home.html">
-    <img src="scripts/img/logo.png" class="navlogo" width="50" height="50">          
-  </a>
-  <a class="navbar-brand" href="#">
-    <h5 class="d-md-none">Home</h5>        
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="home.html">Home</a>
-      </li>
-      <hr/>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Login<span class="sr-only">(current)</span></a>
+    <a class="navbar-brand" href="home.html">
+        <img src="scripts/img/logo.png" class="navlogo" width="50" height="50">          
+    </a>
+    <a class="navbar-brand" href="#">
+        <h5 class="d-md-none">Home</h5>        
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <a class="nav-link" href="home.html">Home</a>
         </li>
-    </ul>
+        <li class="nav-item">
+            <a class="nav-link" href="tickets.php">Evenementen</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="artiesten.php">Artiesten</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+        <hr/>
+        </ul>
   </div>
 </nav>
 
 <!-- Content -->
-<!-- Login -->
-<form method="POST" action="SQLlogin.php" class="text-center w-50 mx-auto mt-5">
-    <h1 class="text-left">Inloggen</h1>
-    <hr>
-    <div class="text-left">
-                <label>Gebruikersnaam</label>
-                <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">@</span>
-                        </div>
-                        <!--username-->
-                        <input type="text" name="gebruikersnaam" class="form-control">
-                      </div>   
-                    </div>
-                    <div class="text-left mb-5">
-                      <!--wachtwoord-->
-          <label for="exampleInputPassword1">Wachtwoord</label>
-          <input type="password" name="wachtwoord" class="form-control w-xl-75" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary mb-5">Inloggen</button>
-      </form>
+<div class="my-5">
+<div align="center">
+
+<h1>Uw registratie was sucessvol verstuurd</h1>  
+</br>
+<h4>Ons personeel gaat uw registratie nu controleren en als deze geaccepteerd wordt komt u op onze site terecht</h4>
+<h4>u ontvangt een e-mail als u geaccepteerd bent.</h4>
+</br>
+<img class="succesimg" src="scripts/img/sucess.gif">
+</br>
+</br>
+<a href="home.html"><button type="submit" class="btn btn-primary"><h5>Terug naar Home</h5></button></a><br />
+</br>
+</div>
+</div>
 
 <!-- Footer -->
 <footer class="bg-primary text-light">

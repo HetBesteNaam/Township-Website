@@ -27,7 +27,7 @@
         <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tickets.html">Tickets</a>
+        <a class="nav-link" href="tickets.php">Evenementen</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="artiesten.php">Artiesten</a>
@@ -36,6 +36,11 @@
         <a class="nav-link" href="contact.html">Contact</a>
       </li>
       <hr/>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
     </ul>
   </div>
 </nav>
@@ -49,7 +54,7 @@
     </ol>
     <div class="carousel-inner w-70">
       <div class="carousel-item active">
-          <a href="tickets.html">
+          <a href="tickets.php">
         <img class="d-block w-100" src="scripts/img/1.png">
         </a>
       </div>
@@ -90,15 +95,33 @@
 <!-- About Us -->
 
 <div class="container my-5">
-    <div class="card mx-autocol-md-8 col-sm-12 text-center ">
-      <div class="card-body py-3">
-        <h4 class="card-title">Contact informatie</h4>
+    <div class="jumbotron bg-light mx-auto col-md-6 col-xs-12 text-left mx-auto">
+        <h4>Over ons</h4>
         <hr>
-        <p>Poppodium<br>Paul van Vlissingenstraat 10D<br>1096 BK Amsterdam<br>
-        <br>Telefoon: 020 - 79 70 500<br>Studio: 0909 - 9596 (45 cent per gesprek)<br/><br/>Email: <a href="mailto:info@poppodium.nl">info@poppodium.nl</a><br/>
-        <br/><a href="https://www.facebook.com/poppodium" target="_blank" class="privacy text-dark"><i class="privacy fab fa-facebook"></i> Facebook</a></p>
-      </div>
+        <p>Wij van Township geven artiesten een kans om hun talenten te laten horen.
+          Daarbij kan iedereen onder genot van een drankje een avond vol plezier beleven!
+          Op de <a href="tickets.html">ticket</a> pagina kun je zien welke talenten welke avond optreden.
+          Leuk voor een avondje uit of als verrassing.
+        </p>
   </div>
+    <div class="row mb-5">
+    <img class="homefoto col-md-6 mb-3" src="scripts/img/binnenkantfoto.jpg">
+    <img class="homefoto col-md-6 mb-3" src="scripts/img/barretje.jpg">
+    </div>    
+    </div>
+</div>
+<hr>
+
+<!-- Artiesten -->
+<div class="container my-5">
+    <div class="jumbotron bg-light mx-auto col-md-6 col-xs-12 text-left mx-auto">
+  <h4>Ben jij een artiest?</h4>
+  <hr>
+  <p>Heb jij talent voor muziek of zang en wil je hogerop in je carrière?
+    Geef je zelf op als artiest bij Township! Je krijgt de mogelijkheid om zalen te huren voor optreden en dat wordt daarnaast ook nog eens gepubliceerd op onze site!
+    Je kunt je <a href="artiesten.php#geefjeop">hier opgeven</a>
+    </p>
+    </div>
 </div>
 
 <!-- Footer -->
@@ -124,8 +147,8 @@
 </footer>
 
 <!-- Javascript -->
-<script src="/scripts/jquery-3.3.1.slim.min.js"></script>
-<script src="/scripts/popper.min.js"></script>
-<script src="/scripts/bootstrap.js"></script>
+<script src="scripts/jquery-3.3.1.slim.min.js"></script>
+<script src="scripts/popper.min.js"></script>
+<script src="scripts/bootstrap.js"></script>
 </body>
 </html>

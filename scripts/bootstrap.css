@@ -20,6 +20,10 @@
   margin-bottom: 4px;
 }
 
+.succesimg{
+  border-radius: 5px;
+}
+
 .persoon:hover{
   text-decoration: none;
   color: lightgray;
@@ -66,6 +70,7 @@
 .footer{
   color: white;
 }
+
 
 /* Bootstrap */
 

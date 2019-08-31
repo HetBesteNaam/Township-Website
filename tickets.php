@@ -1,12 +1,22 @@
 <?php
 include 'scripts/connectsql.php';
-//wanneer de form voor het toevoegen van een profiel verstuurd word, word er ingevoerd dat de artiest met desbetreffende id toegevoegd word
+
+//wanneer de evenementen form verstuurd word
 if(isset($_POST['Toevoegen'])){
-  $ID = $_POST["ArtistId"];
-  $sql = "UPDATE aanmelding  SET geaccepteerd = 'JA' WHERE accountid = $ID";
-  mysqli_query($con, $sql);
-  header("location:artiesten.php");
-}
+    //de data uit de form halen
+    $naam = $_POST['TicketName'];
+    $plaats = $_POST['TicketPlace']; 
+    $datum = $_POST['TicketDate'];
+    $tijd = $_POST['TicketTime'];
+    $artiest = $_POST['TicketArtist'];
+    $beschrijving = $_POST['TicketDesc'];
+    $prijs = $_POST['TicketPrice'];
+
+    $sql = "INSERT INTO tickets (naam, plaats, datum, tijd, artiest, beschrijving, prijs) VALUES ('$naam', '$plaats', '$datum', '$tijd', '$artiest', '$beschrijving', '$prijs')";
+    mysqli_query($con, $sql); //slaat de gestuurde gevens op in de 'producten' tabel in de database
+    
+    header("location:tickets.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +37,7 @@ if(isset($_POST['Toevoegen'])){
     <img src="scripts/img/logo.png" class="navlogo" width="50" height="50">          
   </a>
   <a class="navbar-brand" href="#">
-    <h5 class="d-md-none">Artiesten</h5>        
+    <h5 class="d-md-none">Evenementen</h5>        
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -37,10 +47,10 @@ if(isset($_POST['Toevoegen'])){
       <li class="nav-item">
         <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="tickets.php">Evenementen</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="artiesten.php">Artiesten</a>
       </li>
       <li class="nav-item">
@@ -62,126 +72,145 @@ if(isset($_POST['Toevoegen'])){
       <div class="d-none" id="Medewerker" >
         <div class="row m-0">
           <div class="ml-md-auto pr-md-5 pr-lg-4 text-center my-3">
-            <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistAdd">Artiest toevoegen</button>
-            <!--<button type="button" class="btn btn-warning mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistChange">Artiest aanpassen</button>-->
-            <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#ArtistDelete">Artiest verwijderen</button>
-            <a href="tabel.php" class="btn btn-dark" target="_blank">klik hier om de aanmeldingen te zien</a>
+            <button type="button" class="btn btn-success mb-1 mb-md-0" data-toggle="modal" data-target="#TicketAdd">Evenement toevoegen</button>
+            <button type="button" class="btn btn-danger mb-1 mb-md-0" data-toggle="modal" data-target="#TicketDelete">Evenement verwijderen</button>
           </div>
         </div>
       </div>
     </div>
   <!--end medewerker buttons-->
 
-  <!--start link naar artiest aanmelden-->
+  <!--start link naar zaal huren-->
     <div class="row m-0 text-center">
-      <h4 class="mx-auto my-3">Wilt uw zich aanmelden als artiest? klik <a href="registratie-artiesten.html" class="link">hier</a></h4>
+      <h4 class="mx-auto my-3">Wilt uw een zaal huren? klik <a href="zaal.html" class="link">hier</a></h4>
     </div>
-  <!--end link naar artiest aanmelden-->
+  <!--end link naar zaal huren-->
 
-  <!--start modal artiest toevoegen-->
-  <div class="modal fade" id="ArtistAdd" tabindex="-1" role="dialog" aria-hidden="true">
+  <!--start modal ticket toevoegen-->
+  <div class="modal fade" id="TicketAdd" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Artiest toevoegen</h5>
+          <h5 class="modal-title">Evenement toevoegen</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="post" action="artiesten.php">
+        <form method="post" action="tickets.php">
           <div class="modal-body">
             <div class="form-group">
-              <label for="ArtiestId">Artiest id</label>
-              <input type="number" name="ArtistId" class="form-control" required> 
+              <label for="Ticket naam">Naam</label>
+              <input type="text" name="TicketName" class="form-control" required> 
+            </div>
+            <div class="form-group">
+              <label for="Ticket plaats">Plaats</label>
+              <input type="text" name="TicketPlace" class="form-control" required> 
+            </div>
+            <div class="form-group">
+              <label for="Ticket datum">Datum</label>
+              <input type="date" name="TicketDate" class="form-control" required> 
+            </div>
+            <div class="form-group">
+              <label for="Ticket tijd">Tijd</label>
+              <input type="text" name="TicketTime" class="form-control" required> 
+            </div>
+            <div class="form-group">
+              <label for="Ticket artist">Artiest(en)</label>
+              <textarea cols="10" rows="4" name="TicketArtist" class="form-control" required></textarea> 
+            </div>
+            <div class="form-group">
+              <label for="Ticket beschrijving">Beschrijving</label>
+              <textarea cols="25" rows="4" name="TicketDesc" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="Ticket prijs">Prijs</label>
+              <input type="number" name="TicketPrice" class="form-control" step=".01" required> 
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Sluiten</button>
-            <input type="submit" class="btn btn-success" name="Toevoegen" value="Artiest toevoegen">
+            <input type="submit" class="btn btn-success" name="Toevoegen" value="Ticket toevoegen">
           </div>
         </form>  
       </div>
     </div>
   </div>
-  <!--end modal artiest toevoegen-->
+  <!--end modal ticket toevoegen-->
 
-  <!--start modal artiest aanpassen-->
-  <!--end modal artiest aanpassen-->
-
-  <!--start modal artiest verwijderen-->
-  <div class="modal fade" id="ArtistDelete" tabindex="-1" role="dialog" aria-hidden="true">
+  <!--start modal ticket verwijderen-->
+  <div class="modal fade" id="TicketDelete" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Artiest verwijderen</h5>
+          <h5 class="modal-title">Evenement verwijderen</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="post" action="artiesten.php">
+        <form method="post" action="tickets.php">
           <div class="modal-body">
             <div class="form-group">
-              <label for="DeleteArtist">Artiest Naam</label>
-              <!--start php voor artiest verwijderen-->
-                <select class="form-control" name="ArtistDelete" required>
+              <label for="DeleteTickets">Ticket naam</label>
+              <!--start php voor ticket verwijderen-->
+                <select class="form-control" name="TicketDelete" required>
                   <?php
-                    $sql = "SELECT * FROM aanmelding";
+                    $sql = "SELECT * FROM tickets";
                     $result = mysqli_query($con,$sql);                    
                     while($row = mysqli_fetch_array($result)){
-                      echo "<option name='".$row['accountid']."' value='".$row['accountid']."'>".$row['naam']."</option>";
+                      echo "<option name='".$row['id']."' value='".$row['id']."'>".$row['naam']."</option>";
                     }
                   ?>
                 </select>
-              <!--end php voor artiest verwijderen-->
+              <!--end php voor ticket verwijderen-->
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
-            <input type="submit" class="btn btn-danger" name="delete" value="Artiest verwijderen">
+            <input type="submit" class="btn btn-danger" name="delete" value="Ticket verwijderen">
           </div>
         </form>  
       </div>
     </div>
   </div>
-  <!--end modal artiest verwijderen-->
+  <!--end modal ticket verwijderen-->
 
   <!--start code om sql rij te verwijderen-->
     <?php
-      if(!empty($_POST['ArtistDelete'])){
+      if(!empty($_POST['TicketDelete'])){
         if(isset($_POST['delete'])){
-          $sql = "DELETE FROM aanmelding WHERE accountid =".$_POST['ArtistDelete'];
-          $result = mysqli_query($con, $sql);
+          $sql = "DELETE FROM tickets WHERE id =".$_POST['TicketDelete'];
+          $result = mysqli_query($con, $sql);          
         }else{
           $_POST['delete'] == null;
-        }
+        }        
       }
     ?>
   <!--end code om sql rij te verwijderen-->
 
-  <!-- start standaard artiesten card, en code die de artiesten toevoegd aan de pagina-->
+  <!-- start standaard ticket card, en code die de tickets toevoegd aan de pagina--> 
   <div class="row justify-content-center m-0">
     <?php
-      $sql = "SELECT * FROM aanmelding WHERE geaccepteerd = 'JA'";
+      $sql = "SELECT * FROM tickets";
       $result = mysqli_query($con, $sql);
       while ($row = mysqli_fetch_array($result)){
-        echo "<div class='card col-12 col-md-3 my-3 mx-4 mx-md-4 mx-xl-5 rounded-1 px-0'>";
+        echo "<div class='card col-12 col-md-3 col-xl-2 my-3 mx-4 mx-md-4 mx-xl-5 rounded-1 px-0 text-center'>";
         echo "<div class='card-body px-0 py-2'>";
         echo "<h5 class='card-title mx-2'>".$row['naam']."</h5>";
-        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-lg-none' alt='".$row['naam']."' height='166' width='288' style='object-fit: scale-down;'>";
-        echo "<img src='scripts/img/".$row['image']."' class='card-img-top pb-1 my-1 d-none d-lg-flex' alt='".$row['naam']."' height='253' width='443' style='object-fit: scale-down;'>";
-        echo "<p class='mx-2'>
-        <b>Genre: </b>".$row['genre']."<br/>
-        <b>Leeftijd: </b>".$row['leeftijd']."<br/>
-        <b>Dagen Beschikbaar: </b>".$row['beschikbaar']."</p>"; 
         echo "<hr class='mx-1'>";
-        echo "<h5 class='mx-3 mx-sm-2'><b>Over deze artiest</b></h5>";
-        echo "<p class='card-text h6 font-weight-normal mx-2 mx-sm-1 px-2'>".$row['beschrijving']."</p>";       
+        echo "<p class='mx-2'><b>Plaats: </b>".$row['plaats']."
+        <br/><b>Datum: </b>".$row['datum']."
+        <br/><b>Tijd: </b>".$row['tijd']."
+        <br/><b>Artiest(en): </b></p><pre class='mx-1'>".$row['artiest']."</pre><p class='mx-2'>
+        <b>Prijs: </b>".$row['prijs']."</p>"; 
+        echo "<h5 class='mx-2'><b>Over dit evenement</b></h5>";
+        echo "<p class='card-text h6 font-weight-normal mx-4 mx-md-0 px-2 py-1'>".$row['beschrijving']."</p>"; 
+        echo "<a href='ticket-bestelling.html' class='btn btn-success mt-1'>Ticket bestellen</a>";      
         echo "</div>";
         echo "</div>";
       }
     ?>
   </div>
-<!-- end standaard artiesten card, en code die de artiesten toevoegd aan de pagina-->
+<!-- end standaard ticket card, en code die de tickets toevoegd aan de pagina-->
 
 
 <!-- Footer -->

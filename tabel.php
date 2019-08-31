@@ -1,3 +1,8 @@
+<?php
+include 'scripts/connectsql.php';
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +21,7 @@
     <img src="scripts/img/logo.png" class="navlogo" width="50" height="50">          
   </a>
   <a class="navbar-brand" href="#">
-    <h5 class="d-md-none">Home</h5>        
+    <h5 class="d-md-none">Artiesten</h5>        
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -24,42 +29,66 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="home.html">Home</a>
+        <a class="nav-link" href="home.html">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Tickets</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="artiesten.php">Artiesten</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">Contact</a>
       </li>
       <hr/>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Login<span class="sr-only">(current)</span></a>
-        </li>
     </ul>
   </div>
 </nav>
 
 <!-- Content -->
-<!-- Login -->
-<form method="POST" action="SQLlogin.php" class="text-center w-50 mx-auto mt-5">
-    <h1 class="text-left">Inloggen</h1>
-    <hr>
-    <div class="text-left">
-                <label>Gebruikersnaam</label>
-                <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">@</span>
-                        </div>
-                        <!--username-->
-                        <input type="text" name="gebruikersnaam" class="form-control">
-                      </div>   
-                    </div>
-                    <div class="text-left mb-5">
-                      <!--wachtwoord-->
-          <label for="exampleInputPassword1">Wachtwoord</label>
-          <input type="password" name="wachtwoord" class="form-control w-xl-75" id="exampleInputPassword1">
+  <!-- start tabel aanmeldingen-->
+    <div class="container p-0 col-12 pt-3 d-none d-md-block">
+      <div class="row m-0 p-0">
+        <div class="mx-auto table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Naam</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Leeftijd</th>
+                <th scope="col">Beschrijving</th>
+                <th scope="col">Dagen</th>
+                <th scope="col">Email</th>
+                <th scope="col">toegevoegd</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+                #misschien dat er nog een include moet komen naar connectsql
+                $sql = "SELECT * FROM aanmelding";
+                $result = mysqli_query($con,$sql);
+                while($row = mysqli_fetch_array($result)){
+                  echo "
+                    <tr>
+                      <th scope='row'>".$row['accountid']."</th>
+                      <td>".$row['naam']."</td>
+                      <td>".$row['genre']."</td>
+                      <td>".$row['leeftijd']."</td>
+                      <td>".$row['beschrijving']."</td>
+                      <td>".$row['beschikbaar']."</td>
+                      <td>".$row['email']."</td>
+                      <td>".$row['geaccepteerd']."</td>                   
+                   </tr>";
+                }
+              ?>
+            </tbody>
+          </table>
         </div>
-        <button type="submit" class="btn btn-primary mb-5">Inloggen</button>
-      </form>
-
-<!-- Footer -->
+      </div>    
+        
+  <!--end tabel met aanmeldingen-->
+  <!-- Footer -->
 <footer class="bg-primary text-light">
           <div class="footer">
             <br>
@@ -82,8 +111,8 @@
 </footer>
 
 <!-- Javascript -->
-<script src="/scripts/jquery-3.3.1.slim.min.js"></script>
-<script src="/scripts/popper.min.js"></script>
-<script src="/scripts/bootstrap.js"></script>
+<script src="scripts/jquery-3.3.1.slim.min.js"></script>
+<script src="scripts/popper.min.js"></script>
+<script src="scripts/bootstrap.js"></script>
 </body>
 </html>
